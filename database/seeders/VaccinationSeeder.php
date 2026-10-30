@@ -14,11 +14,11 @@ class VaccinationSeeder extends Seeder
     {
         $entries = [
             [
-                'patient_name' => 'Mateo Buenviaje',
+                'patient_name' => 'Brian Vincent Alfred D. Buenviaje',
                 'purok' => 'Purok Buenviaje',
                 'vaccine' => 'BCG',
                 'dose' => 'Single Dose (At Birth)',
-                'scheduled_at' => '2026-10-30', // Birthday schedule entry in 2026
+                'scheduled_at' => '2026-08-15', // Birthday schedule entry (August 15, 2026)
                 'status' => 'Completed',
             ],
             [

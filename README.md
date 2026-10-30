@@ -10,11 +10,11 @@ Community Immunization & Vaccination Schedule Tracker built for **Nurse Marites 
 | :--- | :--- |
 | **Application Title** | `Bakuna Tracker - Purok Buenviaje` |
 | **Health Center** | Barangay Matina Crossing Health Center (Nurse Marites Abellana, RN) |
-| **Logged-in Health Worker (Navbar)** | `Hi, BV` (configured in `DatabaseSeeder.php`) |
+| **Logged-in Health Worker (Navbar)** | `Hi, Brian` (Brian Vincent Alfred D. Buenviaje — configured in `DatabaseSeeder.php`) |
 | **Seeded User Email** | `nurse.buenviaje@bakuna.test` |
 | **Seeded User Password** | `bakuna2026` |
 | **Seeded Vaccines (8 total entries)** | `BCG`, `Pentavalent`, `OPV`, `MMR`, `Anti-Flu`, `PCV-13 (Pneumococcal)`, `Hepatitis B` |
-| **2026 Birthday Entry** | `2026-10-30` (`Mateo Buenviaje` — `BCG` in `Purok Buenviaje`) |
+| **2026 Birthday Entry** | `2026-08-15` (August 15, 2026 — `Brian Vincent Alfred D. Buenviaje` — `BCG` in `Purok Buenviaje`) |
 
 ---
 

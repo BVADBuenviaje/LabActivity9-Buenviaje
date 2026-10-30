@@ -35,7 +35,7 @@
                     </a>
                     <span class="hidden sm:inline-block text-emerald-600">|</span>
                     <span class="text-sm font-medium text-emerald-100 bg-emerald-800/80 px-3 py-1 rounded-full border border-emerald-700">
-                        Hi, {{ explode(' ', auth()->user()->name)[0] }}
+                        Hi, {{ auth()->user()->name }}
                     </span>
                     <form method="POST" action="{{ route('logout') }}" class="inline">
                         @csrf
