@@ -25,6 +25,7 @@ class VaccinationFactory extends Factory
                 'Purok 2 - Matina Crossing',
                 'Purok 3 - Matina Crossing',
             ]),
+            'address' => 'Davao City',
             'vaccine' => fake()->randomElement([
                 'BCG',
                 'Pentavalent',

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('patient_name');
             $table->string('purok');
+            $table->string('address')->default('Davao City');
             $table->string('vaccine');
             $table->string('dose');
             $table->date('scheduled_at');

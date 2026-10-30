@@ -127,7 +127,7 @@
                         <tr>
                             <th scope="col" class="py-3 px-4 text-left">#</th>
                             <th scope="col" class="py-3 px-4 text-left">Patient Name</th>
-                            <th scope="col" class="py-3 px-4 text-left">Purok</th>
+                            <th scope="col" class="py-3 px-4 text-left">Purok / Address</th>
                             <th scope="col" class="py-3 px-4 text-left">Vaccine</th>
                             <th scope="col" class="py-3 px-4 text-left">Dose</th>
                             <th scope="col" class="py-3 px-4 text-left">Scheduled Date</th>
@@ -152,6 +152,7 @@
                                     <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-medium {{ $vaccination->purok === 'Purok Buenviaje' ? 'bg-emerald-100 text-emerald-800 font-semibold' : 'bg-slate-100 text-slate-700' }}">
                                         {{ $vaccination->purok }}
                                     </span>
+                                    <span class="text-[11px] text-slate-500 block mt-0.5">{{ $vaccination->address }}</span>
                                 </td>
                                 <td class="py-3.5 px-4 font-medium text-slate-800">
                                     {{ $vaccination->vaccine }}

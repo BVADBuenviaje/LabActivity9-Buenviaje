@@ -13,8 +13,9 @@ Community Immunization & Vaccination Schedule Tracker built for **Nurse Marites 
 | **Logged-in Health Worker (Navbar)** | `Hi, Brian` (Brian Vincent Alfred D. Buenviaje — configured in `DatabaseSeeder.php`) |
 | **Seeded User Email** | `nurse.buenviaje@bakuna.test` |
 | **Seeded User Password** | `bakuna2026` |
+| **Address / City** | `Davao City` |
 | **Seeded Vaccines (8 total entries)** | `BCG`, `Pentavalent`, `OPV`, `MMR`, `Anti-Flu`, `PCV-13 (Pneumococcal)`, `Hepatitis B` |
-| **2026 Birthday Entry** | `2026-08-15` (August 15, 2026 — `Brian Vincent Alfred D. Buenviaje` — `BCG` in `Purok Buenviaje`) |
+| **2026 Birthday Entry** | `2026-10-30` (Sanitized 2026 birthday schedule entry — `Brian Buenviaje` — `BCG` in `Purok Buenviaje, Davao City`) |
 
 ---
 

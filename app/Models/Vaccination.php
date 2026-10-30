@@ -19,6 +19,7 @@ class Vaccination extends Model
     protected $fillable = [
         'patient_name',
         'purok',
+        'address',
         'vaccine',
         'dose',
         'scheduled_at',
