@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
+// Guest Routes
 Route::get('/', function () {
     return auth()->check()
         ? redirect()->route('dashboard')
@@ -15,6 +16,7 @@ Route::middleware('guest')->group(function () {
     Route::post('/login', [AuthController::class, 'login'])->name('login.attempt');
 });
 
+// Authenticated Routes
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/schedule', [DashboardController::class, 'schedule'])->name('schedule');

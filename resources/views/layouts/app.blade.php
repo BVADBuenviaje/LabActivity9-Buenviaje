@@ -7,6 +7,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="min-h-screen bg-slate-50 text-slate-800 flex flex-col font-sans antialiased">
+    {{-- Header --}}
     <header class="bg-emerald-900 text-white shadow-md border-b border-emerald-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div class="flex items-center gap-3">
@@ -40,7 +41,7 @@
                     <form method="POST" action="{{ route('logout') }}" class="inline">
                         @csrf
                         <button type="submit"
-                                class="px-3.5 py-1.5 rounded-lg text-sm font-semibold bg-rose-600 hover:bg-rose-500 text-white shadow-sm transition cursor-pointer">
+                                class="px-3.5 py-1.5 rounded-lg text-sm font-semibold bg-emerald-800 hover:bg-emerald-700 text-emerald-100 hover:text-white border border-emerald-600 shadow-sm transition cursor-pointer">
                             Logout
                         </button>
                     </form>
@@ -56,10 +57,12 @@
         </div>
     </header>
 
+    {{-- Main Content --}}
     <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col">
         @yield('content')
     </main>
 
+    {{-- Footer --}}
     <footer class="bg-white border-t border-slate-200 mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-500">
             <p class="font-medium text-slate-600">

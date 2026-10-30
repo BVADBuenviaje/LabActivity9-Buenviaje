@@ -7,9 +7,6 @@ use Illuminate\Database\Seeder;
 
 class VaccinationSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
         $entries = [
@@ -19,7 +16,7 @@ class VaccinationSeeder extends Seeder
                 'address' => 'Davao City',
                 'vaccine' => 'BCG',
                 'dose' => 'Single Dose (At Birth)',
-                'scheduled_at' => '2026-10-30', // Sanitized 2026 Birthday Schedule Entry
+                'scheduled_at' => '2026-08-15',
                 'status' => 'Completed',
             ],
             [

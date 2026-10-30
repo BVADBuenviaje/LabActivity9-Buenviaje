@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="space-y-8">
-        <!-- Page Header -->
+        {{-- Page Header --}}
         <section class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
             <div>
                 <p class="text-xs font-bold uppercase tracking-wider text-emerald-700">
@@ -14,7 +14,7 @@
                     Master Immunization Schedule &middot; Purok Buenviaje
                 </h1>
                 <p class="text-xs sm:text-sm text-slate-600 mt-1">
-                    Filter and inspect scheduled doses for BCG, Pentavalent, OPV, MMR, Anti-Flu, PCV-13, and Hepatitis B.
+                    View and filter scheduled vaccine doses.
                 </p>
             </div>
             <a href="{{ route('dashboard') }}"
@@ -23,40 +23,36 @@
             </a>
         </section>
 
-        <!-- Stat Cards (md:grid-cols-4) -->
+        {{-- Statistics Grid --}}
         <section aria-label="Schedule Summary Counts" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             <x-stat-card
                 title="Total Records"
                 :value="$totalVaccinations"
-                subtitle="All seeded 2026 entries"
+                subtitle="Seeded entries"
                 badge="Registry"
-                variant="emerald"
             />
             <x-stat-card
                 title="Completed"
                 :value="$completedCount"
-                subtitle="Doses administered"
+                subtitle="Administered"
                 badge="Done"
-                variant="emerald"
             />
             <x-stat-card
                 title="Scheduled"
                 :value="$scheduledCount"
                 subtitle="Upcoming appointments"
                 badge="Active"
-                variant="sky"
             />
             <x-stat-card
                 title="Pending"
                 :value="$pendingCount"
-                subtitle="Requires BHW follow-up"
+                subtitle="Requires follow-up"
                 badge="Pending"
-                variant="amber"
             />
         </section>
 
-        <!-- Filter Form & Conditional Alert Banner -->
-        <x-panel title="Filter Immunization Records" subtitle="Filter by Purok or Vaccination Status">
+        {{-- Filter Panel --}}
+        <x-panel title="Filter Records" subtitle="Filter by purok or status">
             <form method="GET" action="{{ route('schedule') }}" class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-end">
                 <div>
                     <label for="purok" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
@@ -98,23 +94,23 @@
 
             <div class="mt-5">
                 @if ($vaccinations->isEmpty())
-                    <div class="rounded-xl bg-rose-50 border border-rose-200 p-4 text-xs text-rose-800 font-medium">
-                        No vaccination schedule records matched your selected filter criteria.
+                    <div class="rounded-xl bg-emerald-50 border border-emerald-200 p-4 text-xs text-emerald-900 font-medium">
+                        No vaccination schedule records match the filter.
                     </div>
                 @elseif ($pendingCount > 0)
-                    <div class="rounded-xl bg-amber-50 border border-amber-200 p-3.5 text-xs text-amber-900">
-                        <strong>Health Center Reminder:</strong> There {{ $pendingCount === 1 ? 'is' : 'are' }} currently <strong>{{ $pendingCount }}</strong> pending immunization {{ $pendingCount === 1 ? 'entry' : 'entries' }} awaiting household confirmation.
+                    <div class="rounded-xl bg-emerald-50 border border-emerald-300 p-3.5 text-xs text-emerald-950 font-medium">
+                        Notice: {{ $pendingCount }} pending {{ $pendingCount === 1 ? 'immunization awaits' : 'immunizations await' }} confirmation.
                     </div>
                 @else
                     <div class="rounded-xl bg-emerald-50 border border-emerald-200 p-3.5 text-xs text-emerald-900">
-                        All scheduled records are up to date with no pending follow-ups.
+                        All scheduled records are up to date.
                     </div>
                 @endif
             </div>
         </x-panel>
 
         {{-- Schedule Table --}}
-        <x-panel title="Vaccination Schedule Registry" subtitle="Ordered chronologically by 2026 appointment date">
+        <x-panel title="Vaccination Schedule Registry" subtitle="Chronological 2026 schedule">
             <div class="overflow-x-auto -mx-6 px-6">
                 <table class="min-w-full divide-y divide-slate-200 text-sm">
                     <thead class="bg-slate-100 text-slate-600 text-xs uppercase tracking-wider font-bold">
@@ -135,7 +131,7 @@
                                     {{ $loop->iteration }}
                                     @if ($loop->first)
                                         <span class="ml-1 inline-block px-1.5 py-0.5 text-[10px] font-sans font-bold uppercase rounded bg-emerald-100 text-emerald-800">
-                                            Earliest
+                                            First
                                         </span>
                                     @endif
                                 </td>
@@ -163,11 +159,11 @@
                                             {{ $vaccination->status }}
                                         </span>
                                     @elseif ($vaccination->status === 'Scheduled')
-                                        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-sky-100 text-sky-800">
+                                        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
                                             {{ $vaccination->status }}
                                         </span>
                                     @else
-                                        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800">
+                                        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-700 border border-slate-200">
                                             {{ $vaccination->status }}
                                         </span>
                                     @endif

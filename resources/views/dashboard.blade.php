@@ -4,17 +4,17 @@
 
 @section('content')
     <div class="space-y-8">
-        <!-- Hero & Health Center Banner -->
-        <section class="bg-gradient-to-r from-emerald-900 via-emerald-800 to-teal-800 rounded-2xl p-6 sm:p-8 text-white shadow-md flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+        {{-- Hero Banner --}}
+        <section class="bg-gradient-to-r from-emerald-900 to-emerald-800 rounded-2xl p-6 sm:p-8 text-white shadow-md flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
             <div class="space-y-2">
-                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-700/80 text-emerald-100 border border-emerald-500/40">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-800 text-emerald-100 border border-emerald-600">
                     Barangay Matina Crossing Health Center
                 </span>
                 <h1 class="text-2xl sm:text-3xl font-black tracking-tight">
                     Bakuna Tracker - Purok Buenviaje
                 </h1>
                 <p class="text-sm text-emerald-100 max-w-2xl leading-relaxed">
-                    Community Immunization Dashboard for Nurse Marites Abellana's Barangay Health Center. Monitoring BCG, Pentavalent, OPV, MMR, Anti-Flu, PCV-13, and Hepatitis B vaccination schedules across Purok Buenviaje.
+                    Overview of immunization schedules for Purok Buenviaje.
                 </p>
             </div>
             <div class="flex flex-wrap items-center gap-3 shrink-0">
@@ -25,43 +25,43 @@
             </div>
         </section>
 
-        {{-- Conditional Alert Banner --}}
-        <x-panel title="Immunization Status Advisory" subtitle="Real-time Purok Buenviaje cold-chain & follow-up alerts">
+        {{-- Status Advisory --}}
+        <x-panel title="Immunization Status" subtitle="Current records and follow-ups">
             @if ($pendingCount > 0)
-                <div class="rounded-xl bg-amber-50 border border-amber-200 p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                    <div class="space-y-1">
-                        <p class="text-sm font-bold text-amber-900">
-                            Follow-Up Required: {{ $pendingCount }} Pending Vaccination {{ $pendingCount === 1 ? 'Record' : 'Records' }}
+                <div class="rounded-xl bg-emerald-50 border border-emerald-300 p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-emerald-950">
+                    <div>
+                        <p class="text-sm font-bold">
+                            Notice: {{ $pendingCount }} pending {{ $pendingCount === 1 ? 'immunization awaits' : 'immunizations await' }} confirmation.
                         </p>
-                        <p class="text-xs text-amber-800">
-                            Barangay Health Workers in Purok Buenviaje need to confirm household reminders for pending immunization doses.
+                        <p class="text-xs text-emerald-800 mt-0.5">
+                            Barangay Health Workers need to complete scheduled household reminders.
                         </p>
                     </div>
-                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-amber-200/80 text-amber-900 shrink-0">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-emerald-700 text-white shrink-0">
                         Action Needed
                     </span>
                 </div>
             @elseif ($scheduledCount > 0)
-                <div class="rounded-xl bg-sky-50 border border-sky-200 p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                    <div class="space-y-1">
-                        <p class="text-sm font-bold text-sky-900">
-                            Upcoming Clinic Sessions: {{ $scheduledCount }} Scheduled {{ $scheduledCount === 1 ? 'Patient' : 'Patients' }}
+                <div class="rounded-xl bg-emerald-50 border border-emerald-200 p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-emerald-950">
+                    <div>
+                        <p class="text-sm font-bold">
+                            Notice: {{ $scheduledCount }} upcoming clinic {{ $scheduledCount === 1 ? 'session is' : 'sessions are' }} scheduled.
                         </p>
-                        <p class="text-xs text-sky-800">
-                            All vaccine vials are stocked and ready for upcoming scheduled appointments at Barangay Matina Crossing Health Center.
+                        <p class="text-xs text-emerald-800 mt-0.5">
+                            Vaccine inventory is prepared for scheduled appointments.
                         </p>
                     </div>
-                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-sky-200/80 text-sky-900 shrink-0">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-emerald-200 text-emerald-900 shrink-0">
                         On Track
                     </span>
                 </div>
             @else
-                <div class="rounded-xl bg-emerald-50 border border-emerald-200 p-4">
-                    <p class="text-sm font-bold text-emerald-900">
-                        All Purok Buenviaje Vaccination Doses Completed!
+                <div class="rounded-xl bg-emerald-50 border border-emerald-200 p-4 text-emerald-900">
+                    <p class="text-sm font-bold">
+                        All immunization doses completed.
                     </p>
                     <p class="text-xs text-emerald-700 mt-0.5">
-                        Every registered resident has completed their scheduled immunization dose for 2026.
+                        Every registered resident has completed their scheduled doses.
                     </p>
                 </div>
             @endif
@@ -69,55 +69,51 @@
             @unless ($vaccinations->isEmpty())
                 <div class="mt-4 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-600">
                     <span>
-                        Active Vaccines in Registry:
+                        Active Vaccines:
                         @foreach ($distinctVaccines as $vaccineName)
                             <strong class="text-slate-800">{{ $vaccineName }}</strong>{{ $loop->last ? '' : ', ' }}
                         @endforeach
                     </span>
                     <span class="font-semibold text-emerald-700">
-                        Purok Buenviaje Coverage: {{ $purokBuenviajeCount }} of {{ $totalVaccinations }} records
+                        Purok Buenviaje: {{ $purokBuenviajeCount }} of {{ $totalVaccinations }} records
                     </span>
                 </div>
             @endunless
         </x-panel>
 
-        <!-- Summary Stat Cards (Responsive CSS Grid: md:grid-cols-4) -->
+        {{-- Statistics Grid --}}
         <section aria-label="Vaccination Statistics" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             <x-stat-card
                 title="Total Registered Doses"
                 :value="$totalVaccinations"
-                subtitle="2026 Master Immunization List"
+                subtitle="Master list"
                 badge="All Puroks"
-                variant="emerald"
             />
             <x-stat-card
                 title="Completed Doses"
                 :value="$completedCount"
-                subtitle="Administered & verified"
-                badge="Administered"
-                variant="emerald"
+                subtitle="Administered"
+                badge="Done"
             />
             <x-stat-card
                 title="Scheduled Appointments"
                 :value="$scheduledCount"
-                subtitle="Confirmed clinic dates"
-                badge="Upcoming"
-                variant="sky"
+                subtitle="Upcoming clinic dates"
+                badge="Active"
             />
             <x-stat-card
                 title="Pending Follow-Ups"
                 :value="$pendingCount"
-                subtitle="Awaiting household visit"
-                badge="Needs Follow-Up"
-                variant="amber"
+                subtitle="Awaiting visit"
+                badge="Pending"
             />
         </section>
 
-        {{-- Vaccination Schedule Table --}}
-        <x-panel title="Purok Buenviaje & Barangay Immunization Schedule" subtitle="Showing all seeded 2026 patient vaccination records">
+        {{-- Schedule Table --}}
+        <x-panel title="Vaccination Schedule" subtitle="All registered patient records">
             <x-slot:actions>
-                <a href="{{ route('schedule') }}" class="text-xs font-bold text-emerald-700 hover:text-emerald-600 underline">
-                    Open Dedicated Schedule View &rarr;
+                <a href="{{ route('schedule') }}" class="text-xs font-bold text-emerald-700 hover:text-emerald-800 underline">
+                    Open Schedule View &rarr;
                 </a>
             </x-slot:actions>
 
@@ -169,11 +165,11 @@
                                             {{ $vaccination->status }}
                                         </span>
                                     @elseif ($vaccination->status === 'Scheduled')
-                                        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-sky-100 text-sky-800">
+                                        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
                                             {{ $vaccination->status }}
                                         </span>
                                     @else
-                                        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800">
+                                        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-700 border border-slate-200">
                                             {{ $vaccination->status }}
                                         </span>
                                     @endif
