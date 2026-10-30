@@ -3,7 +3,6 @@
 @section('title', 'Sign In · Bakuna Tracker - Purok Buenviaje')
 
 @section('content')
-    // login
     <div class="min-h-[calc(100vh-8rem)] flex-1 flex flex-col justify-center items-center w-full pb-12 sm:pb-16">
         <section class="max-w-md w-full mx-auto">
             <x-panel title="Health Worker Sign In" subtitle="Barangay Matina Crossing Health Center">
