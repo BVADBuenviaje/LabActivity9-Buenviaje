@@ -3,7 +3,7 @@
 @section('title', 'Sign In · Bakuna Tracker - Purok Buenviaje')
 
 @section('content')
-    <div class="min-h-[calc(100vh-8rem)] flex-1 flex flex-col justify-center items-center w-full">
+    <div class="min-h-[calc(100vh-8rem)] flex-1 flex flex-col justify-center items-center w-full pb-12 sm:pb-16">
         <section class="max-w-md w-full mx-auto">
             <x-panel title="Health Worker Portal Sign In" subtitle="Barangay Matina Crossing Health Center · Purok Buenviaje">
             @unless (auth()->check())
