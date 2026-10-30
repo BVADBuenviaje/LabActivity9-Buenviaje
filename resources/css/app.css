@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Hide default browser password reveal and clear buttons (e.g., Microsoft Edge) */
+input::-ms-reveal,
+input::-ms-clear {
+    display: none;
+}
+
