@@ -4,7 +4,6 @@
 
 @section('content')
     <div class="space-y-8">
-        {{-- Page Header --}}
         <section class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
             <div>
                 <p class="text-xs font-bold uppercase tracking-wider text-emerald-700">
@@ -23,7 +22,7 @@
             </a>
         </section>
 
-        {{-- Statistics Grid --}}
+        {{-- metrics --}}
         <section aria-label="Schedule Summary Counts" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             <x-stat-card
                 title="Total Records"
@@ -51,7 +50,7 @@
             />
         </section>
 
-        {{-- Filter Panel --}}
+        {{-- filters --}}
         <x-panel title="Filter Records" subtitle="Filter by purok or status">
             <form method="GET" action="{{ route('schedule') }}" class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-end">
                 <div>
@@ -109,7 +108,7 @@
             </div>
         </x-panel>
 
-        {{-- Schedule Table --}}
+        {{-- schedule --}}
         <x-panel title="Vaccination Schedule Registry" subtitle="Chronological 2026 schedule">
             <div class="overflow-x-auto -mx-6 px-6">
                 <table class="min-w-full divide-y divide-slate-200 text-sm">

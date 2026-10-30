@@ -8,9 +8,6 @@ use Illuminate\View\View;
 
 class DashboardController extends Controller
 {
-    /**
-     * Display the Barangay Bakuna Tracker summary dashboard.
-     */
     public function index(): View
     {
         $vaccinations = Vaccination::query()
@@ -35,9 +32,6 @@ class DashboardController extends Controller
         ]);
     }
 
-    /**
-     * Display the full vaccination schedule directory.
-     */
     public function schedule(Request $request): View
     {
         $selectedStatus = $request->query('status');

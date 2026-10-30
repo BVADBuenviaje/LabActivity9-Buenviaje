@@ -9,17 +9,11 @@ use Illuminate\View\View;
 
 class AuthController extends Controller
 {
-    /**
-     * Display the health worker login view.
-     */
     public function showLogin(): View
     {
         return view('auth.login');
     }
 
-    /**
-     * Authenticate the health worker session.
-     */
     public function login(Request $request): RedirectResponse
     {
         $credentials = $request->validate([
@@ -38,9 +32,6 @@ class AuthController extends Controller
         ])->onlyInput('email');
     }
 
-    /**
-     * Log the health worker out of the application.
-     */
     public function logout(Request $request): RedirectResponse
     {
         Auth::logout();

@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="space-y-8">
-        {{-- Hero Banner --}}
+        {{-- summary --}}
         <section class="bg-gradient-to-r from-emerald-900 to-emerald-800 rounded-2xl p-6 sm:p-8 text-white shadow-md flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
             <div class="space-y-2">
                 <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-800 text-emerald-100 border border-emerald-600">
@@ -25,7 +25,6 @@
             </div>
         </section>
 
-        {{-- Status Advisory --}}
         <x-panel title="Immunization Status" subtitle="Current records and follow-ups">
             @if ($pendingCount > 0)
                 <div class="rounded-xl bg-emerald-50 border border-emerald-300 p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-emerald-950">
@@ -81,7 +80,7 @@
             @endunless
         </x-panel>
 
-        {{-- Statistics Grid --}}
+        {{-- metrics --}}
         <section aria-label="Vaccination Statistics" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             <x-stat-card
                 title="Total Registered Doses"
@@ -109,7 +108,7 @@
             />
         </section>
 
-        {{-- Schedule Table --}}
+        {{-- schedule --}}
         <x-panel title="Vaccination Schedule" subtitle="All registered patient records">
             <x-slot:actions>
                 <a href="{{ route('schedule') }}" class="text-xs font-bold text-emerald-700 hover:text-emerald-800 underline">
