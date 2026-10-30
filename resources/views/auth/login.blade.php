@@ -3,8 +3,9 @@
 @section('title', 'Sign In · Bakuna Tracker - Purok Buenviaje')
 
 @section('content')
-    <section class="max-w-md mx-auto py-6 sm:py-12">
-        <x-panel title="Health Worker Portal Sign In" subtitle="Barangay Matina Crossing Health Center · Purok Buenviaje">
+    <div class="min-h-[calc(100vh-8rem)] flex-1 flex flex-col justify-center items-center w-full">
+        <section class="max-w-md w-full mx-auto">
+            <x-panel title="Health Worker Portal Sign In" subtitle="Barangay Matina Crossing Health Center · Purok Buenviaje">
             @unless (auth()->check())
                 <div class="mb-5 rounded-xl bg-emerald-50 border border-emerald-200 p-3.5 text-xs text-emerald-800">
                     <p class="font-bold">Authorized Health Center Access Only</p>
@@ -68,5 +69,6 @@
                 </button>
             </form>
         </x-panel>
-    </section>
+        </section>
+    </div>
 @endsection
