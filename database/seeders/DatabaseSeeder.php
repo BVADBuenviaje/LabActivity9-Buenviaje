@@ -11,9 +11,7 @@ class DatabaseSeeder extends Seeder
 {
     use WithoutModelEvents;
 
-    /**
-     * Seed the application's database.
-     */
+    // default health worker and vaccination records
     public function run(): void
     {
         User::create([

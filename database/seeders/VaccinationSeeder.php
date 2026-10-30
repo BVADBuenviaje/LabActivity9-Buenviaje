@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 
 class VaccinationSeeder extends Seeder
 {
+    // initial vaccination records
     public function run(): void
     {
         $entries = [

@@ -8,6 +8,7 @@ use Illuminate\View\View;
 
 class DashboardController extends Controller
 {
+    // dashboard summary
     public function index(): View
     {
         $vaccinations = Vaccination::query()
@@ -32,6 +33,7 @@ class DashboardController extends Controller
         ]);
     }
 
+    // schedule directory
     public function schedule(Request $request): View
     {
         $selectedStatus = $request->query('status');

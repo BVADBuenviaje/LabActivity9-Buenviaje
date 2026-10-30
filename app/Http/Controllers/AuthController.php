@@ -9,11 +9,13 @@ use Illuminate\View\View;
 
 class AuthController extends Controller
 {
+    // show login form
     public function showLogin(): View
     {
         return view('auth.login');
     }
 
+    // authenticate
     public function login(Request $request): RedirectResponse
     {
         $credentials = $request->validate([
@@ -32,6 +34,7 @@ class AuthController extends Controller
         ])->onlyInput('email');
     }
 
+    // logout
     public function logout(Request $request): RedirectResponse
     {
         Auth::logout();

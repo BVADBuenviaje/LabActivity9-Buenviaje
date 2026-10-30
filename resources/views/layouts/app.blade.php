@@ -7,6 +7,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="min-h-screen bg-slate-50 text-slate-800 flex flex-col font-sans antialiased">
+    {{-- // nav --}}
     <header class="bg-emerald-900 text-white shadow-md border-b border-emerald-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div class="flex items-center gap-3">
@@ -56,10 +57,12 @@
         </div>
     </header>
 
+    {{-- // main --}}
     <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col">
         @yield('content')
     </main>
 
+    {{-- // footer --}}
     <footer class="bg-white border-t border-slate-200 mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-500">
             <p class="font-medium text-slate-600">
